@@ -1,0 +1,3 @@
+name: react-admin-cognito
+runtime: nodejs
+description: AWS API Lambda and Cognito
