@@ -17,7 +17,6 @@ const api = new awsx.apigateway.API(`${project}-api`, {
     }],
 })
 
-
 const cognitoUserPool = new aws.cognito.UserPool(`${project}-pool`, {})
 const cognitoAppClient = new aws.cognito.UserPoolClient(`${project}-appclient`, {
     userPoolId: cognitoUserPool.id
