@@ -12,6 +12,11 @@ const api = new awsx.apigateway.API(`${project}-api`, {
            return {
                statusCode: 200,
                body: "Hello!!!",
+               headers: {
+                   "Access-Control-Allow-Headers" : "Content-Type",
+                   "Access-Control-Allow-Origin": "*",
+                   "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+               }
            }
         }
     }],
