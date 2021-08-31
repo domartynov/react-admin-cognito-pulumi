@@ -1,34 +1,15 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import './BackendApi'
-import {BackendApi} from "./BackendApi";
+import * as React from 'react';
 
-function App() {
-  const [msg, setMsg] = useState('Loading...')
-  BackendApi
-      .hello()
-      .then(setMsg)
-      .catch(console.log)
+import jsonServerProvider from 'ra-data-json-server'
+import {Admin, ListGuesser, Resource} from "react-admin";
+import {apiUrl} from "./backend-config.json";
+import {TodoList} from "./todos";
+import Dashboard from "./Dashboard";
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {msg}
-        </a>
-      </header>
-    </div>
-  );
-}
+const dataProvider = jsonServerProvider(apiUrl)
+const App = () =>
+    <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+        <Resource name="todos" list={TodoList} />
+    </Admin>
 
 export default App;
