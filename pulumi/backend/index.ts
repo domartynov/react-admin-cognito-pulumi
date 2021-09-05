@@ -59,6 +59,7 @@ const cognitoAppClient = new aws.cognito.UserPoolClient(`${project}-appclient`, 
 
 
 export const apiUrl = api.url
+export const cognitoRegionId = pulumi.output(aws.getRegion()).apply(r => r.id)
 export const cognitoUserPoolId = cognitoUserPool.id
 export const cognitoAppClientId = cognitoAppClient.id
 

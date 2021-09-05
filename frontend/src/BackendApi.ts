@@ -5,5 +5,4 @@ export const BackendApi = {
         const r = await fetch(apiUrl)
         return r.text()
     }
-
 }
